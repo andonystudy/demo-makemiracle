@@ -1,0 +1,58 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="../assets/img/handshake_127.png" alt="logo">
+        <h1>Make a Miracle</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li routerLink="/inicio" nz-menu-item nzMatchRouter nz-tooltip nzTooltipPlacement="right"
+        [nzTooltipTitle]="isCollapsed ? 'Inicio' : ''">
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+        <span>Inicio</span>
+      </li>
+      <li nz-submenu nzTitle="Mantenimiento" nzIcon="tool">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">Welcome</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/alumno">Estudiante</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/patrocinador">Patrocinador</a>
+          </li>
+        </ul>
+      </li>
+      <!-- <li nz-submenu nzTitle="Form" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/login">Basic Form</a>
+          </li>
+        </ul>
+      </li> -->
+      <li routerLink="/login" nz-menu-item nzMatchRouter nz-tooltip nzTooltipPlacement="right"
+        [nzTooltipTitle]="isCollapsed ? 'Salir' : ''">
+        <i nz-icon nzType="logout" nzTheme="outline"></i>
+        <span>Salir</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+        </span>
+        <nz-avatar class="avatar" [nzShape]="'square'" nzText="U"></nz-avatar>
+      </div>      
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
